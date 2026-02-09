@@ -2,3 +2,17 @@ build/
 *~
 ~*
 #*#
+
+# Qt-specific
+Makefile.qt
+.qmake.stash
+*.pro.user
+*.autosave
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
