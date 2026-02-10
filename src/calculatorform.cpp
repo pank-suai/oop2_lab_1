@@ -7,7 +7,7 @@
 CalculatorForm::CalculatorForm(QWidget *parent) : QWidget(parent), ui(new Ui::CalculatorForm) {
     ui->setupUi(this);
     
-    // Установка валидации для полей ввода (критическое требование)
+    // Установка валидации для полей ввода
     QDoubleValidator *validator1 = new QDoubleValidator(this);
     validator1->setNotation(QDoubleValidator::StandardNotation);
     ui->lineEdit_num1->setValidator(validator1);
@@ -16,7 +16,7 @@ CalculatorForm::CalculatorForm(QWidget *parent) : QWidget(parent), ui(new Ui::Ca
     validator2->setNotation(QDoubleValidator::StandardNotation);
     ui->lineEdit_num2->setValidator(validator2);
     
-    // Программное соединение сигналов и слотов (критическое требование)
+    // Программное соединение сигналов и слотов
     connect(ui->pushButton_add, &QPushButton::clicked, this, &CalculatorForm::onAddClicked);
     connect(ui->pushButton_subtract, &QPushButton::clicked, this, &CalculatorForm::onSubtractClicked);
     connect(ui->pushButton_multiply, &QPushButton::clicked, this, &CalculatorForm::onMultiplyClicked);
@@ -27,7 +27,7 @@ CalculatorForm::CalculatorForm(QWidget *parent) : QWidget(parent), ui(new Ui::Ca
     connect(ui->lineEdit_num1, &QLineEdit::textChanged, this, &CalculatorForm::onInputChanged);
     connect(ui->lineEdit_num2, &QLineEdit::textChanged, this, &CalculatorForm::onInputChanged);
     
-    // Начальное состояние кнопок (критическое требование)
+    // Начальное состояние кнопок
     updateButtonStates();
 }
 
@@ -60,10 +60,9 @@ void CalculatorForm::onDivideClicked() {
     double num1 = getFirstNumber();
     double num2 = getSecondNumber();
     
-    // Обработка деления на ноль (критическое требование)
-    if (num2 == 0.0) {
-        QMessageBox::critical(this, "Ошибка", "Деление на ноль невозможно!");
-        setResult("Ошибка");
+    // Обработка деления на ноль с учетом погрешности
+    if (std::abs(num2) < 1e-10) {
+        setResult("Ошибка, деление на ноль невозможно");
         return;
     }
     
@@ -75,10 +74,10 @@ void CalculatorForm::onRemainderClicked() {
     double num1 = getFirstNumber();
     double num2 = getSecondNumber();
     
-    // Обработка остатка от деления на ноль
-    if (num2 == 0.0) {
+    // Обработка остатка от деления на ноль с учетом погрешности
+    if (std::abs(num2) < 1e-10) {
         QMessageBox::critical(this, "Ошибка", "Деление на ноль невозможно!");
-        setResult("Ошибка");
+        setResult("Ошибка, деление на ноль невозможно");
         return;
     }
     
@@ -88,10 +87,10 @@ void CalculatorForm::onRemainderClicked() {
 }
 
 void CalculatorForm::onInputChanged() {
-    // При изменении данных очищаем результат (критическое требование)
+    // При изменении данных очищаем результат
     clearResult();
     
-    // Обновляем состояние кнопок (критическое требование)
+    // Обновляем состояние кнопок
     updateButtonStates();
 }
 

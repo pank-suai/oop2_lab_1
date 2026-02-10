@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
     
     // Главное окно с вкладками для двух форм
     QTabWidget mainWindow;
-    mainWindow.setWindowTitle("Лабораторная работа №1 - Qt");
+    mainWindow.setWindowTitle("Панков В.Д., группа М412");
     mainWindow.resize(600, 400);
     
     // Форма приветствия (Часть 1)
