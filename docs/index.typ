@@ -72,37 +72,47 @@
 
 == Заголовочный файл формы приветствия (greetingform.hpp)
 
-```cpp
-#raw(read("../src/greetingform.hpp"), lang: "cpp")
-```
+
+#raw(read("../src/greetingform.hpp"), lang: "cpp", block: true)
+
 
 == Реализация формы приветствия (greetingform.cpp)
 
-```cpp
-#raw(read("../src/greetingform.cpp"), lang: "cpp")
-```
+#raw(read("../src/greetingform.cpp"), lang: "cpp", block: true)
 
 == Заголовочный файл калькулятора (calculatorform.hpp)
 
-```cpp
-#raw(read("../src/calculatorform.hpp"), lang: "cpp")
-```
-
+#raw(read("../src/calculatorform.hpp"), lang: "cpp", block: true) 
 == Реализация калькулятора (calculatorform.cpp)
 
-```cpp
-#raw(read("../src/calculatorform.cpp"), lang: "cpp")
-```
+#raw(read("../src/calculatorform.cpp"), lang: "cpp", block: true)
 
 == Главный файл программы (main.cpp)
 
-```cpp
-#raw(read("../src/main.cpp"), lang: "cpp")
-```
-
+#raw(read("../src/main.cpp"), lang: "cpp", block: true)
 = Скриншоты работы программы
 
+== Форма приветствия
 
+#figure(image("images/003_приветствие.png", width: 90%), caption: "Запуск приложения — вкладка приветствия")
+
+#figure(image("images/004_пустое_приветствие.png", width: 90%), caption: "Пустое поле ввода приветствия")
+
+#figure(image("images/005_заполненное_приветствие.png", width: 90%), caption: "Отображение приветствия после ввода текста")
+== Калькулятор
+
+#figure(image("images/006_калькулятор.png", width: 90%), caption: "Вкладка калькулятора — начальное состояние")
+
+#figure(image("images/007_сложение.png", width: 90%), caption: "Операция сложения")
+
+#figure(image("images/008_вычитание.png", width: 90%), caption: "Операция вычитания")
+
+#figure(image("images/009_умножение.png", width: 90%), caption: "Операция умножения")
+#figure(image("images/010_разделение.png", width: 90% ), caption: "Операция деления")
+
+#figure(image("images/011_остаток.png", width: 90%), caption: "Операция остатка от деления")
+
+#figure(image("images/012_деление_на_0.png", width: 90%), caption: "Обработка ошибки деления на ноль")
 = Выводы
 
 В ходе выполнения лабораторной работы были получены следующие навыки:
@@ -117,10 +127,9 @@
 
 5. Валидация ввода — применен класс `QDoubleValidator` для ограничения ввода только числовыми значениями
 
-6. Обработка ошибок — реализована проверка деления на ноль с выводом диалогового окна через `QMessageBox::critical()`
 
-7. Управление состоянием элементов — реализована динамическая блокировка кнопок через `setEnabled()` в зависимости от заполненности полей ввода
+6. Управление состоянием элементов — реализована динамическая блокировка кнопок через `setEnabled()` в зависимости от заполненности полей ввода
 
-8. Структура Qt-проекта — изучена организация проекта с разделением на UI-файлы, заголовочные и реализационные файлы
+7. Структура Qt-проекта — изучена организация проекта с разделением на UI-файлы, заголовочные и реализационные файлы
 
 Все требования методического указания выполнены полностью, включая дополнительные функции для получения дополнительного балла.
